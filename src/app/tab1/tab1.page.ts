@@ -15,6 +15,7 @@ import { ServidorService } from '../servicos/service/service.service';
 })
 export class Tab1Page {
 
+  public bg = 'bg';
   nome: any;
   logoutimg = '/assets/logout';
 

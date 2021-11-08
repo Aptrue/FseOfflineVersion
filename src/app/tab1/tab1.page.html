@@ -2,45 +2,56 @@
   <ion-toolbar color="primary">
     <ion-menu-button slot="start" ></ion-menu-button>
     <ion-title>
-      Registar Familias
+      Ficha Socioeconómica
     </ion-title>
     <ion-icon name="search" slot="end" style="margin-right: 10px;" routerLink="#"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" color="success">
+<div>
 
-<ion-card>
+</div>
 
-     <ion-card-content>
-
-            <ion-item-divider>
-             <span>Familias</span>
-             <ion-badge color="success">nn</ion-badge>
-            </ion-item-divider>
+<ion-content [fullscreen]="true" [color]="bg">
 
 
-     </ion-card-content>
 
-</ion-card>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-card>
+            <ion-card-content>
+              <ion-col size="6"><img src="assets/family.png"/></ion-col> lll
+            </ion-card-content>
+
+          </ion-card>
+
+        </ion-row>
+      </ion-grid>
+
+
+
 
 
 <ion-grid>
    <ion-row>
       <ion-col size="4">
               <ion-card class="cardf">
-                 llll
+                <img src="assets/male-sign-emoji.png"/><br>
+                <div style="width: 100%; margin: 0; background-color: aquamarine; color: rgb(156, 156, 156);">68</div>
               </ion-card>
       </ion-col>
       <ion-col size="4">
             <ion-card class="cardf">
-                jjjjj
+              <img src="assets/female-sign-emoji.png"/>
+              <br>
+              <div style="width: 100%; margin: 0; background-color: aquamarine; color: rgb(156, 156, 156);">68</div>
             </ion-card>
       </ion-col>
 
       <ion-col size="4">
             <ion-card class="cardf">
-                ooooo
+              <img src="assets/teenager-male.png"/><br>
+              <div style="width: 100%; margin: 0; background-color: aquamarine; color: rgb(156, 156, 156);">68</div>
             </ion-card>
       </ion-col>
 
@@ -48,15 +59,8 @@
 </ion-grid>
 
 <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-  <ion-fab-button><ion-icon name="add"></ion-icon></ion-fab-button>
-  <ion-fab-list side="top">
-    <ion-fab-button routerLink="creat-family" color="primary">
-      <ion-icon name="person-add-outline"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-button color="primary">
-      <ion-icon name="create-outline"></ion-icon>
-    </ion-fab-button>
-  </ion-fab-list>
+  <ion-fab-button><ion-icon name="add" routerLink="creat-family"></ion-icon></ion-fab-button>
+
 </ion-fab>
 
 </ion-content>
