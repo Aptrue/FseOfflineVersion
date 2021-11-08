@@ -1,0 +1,93 @@
+input[type=text], select {
+  width:  250px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  box-sizing: border-box;
+  margin: auto;
+}
+
+input[type=password], select {
+  width: 250px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  box-sizing: border-box;
+  margin: auto;
+}
+
+.inputname{
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.inputpass{
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.button{
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+ion-button{
+  width:  250px;
+}
+
+#logo{
+  text-align: center;
+}
+
+.corpo{
+   margin-top: 90px;
+
+   position: relative;
+
+}
+
+.ng-invalid.ng-touched:not(form){
+  border: 1px solid red;
+}
+
+
+.c-error{
+  background: #f7658e !important;
+  padding: 10px !important;
+  border-radius: 10 !important;
+  position: relative;
+  display: inline-block !important;
+  box-shadow: 1px 1px 1px #aaaaaa;
+  margin-top: 10px;
+  text-align: justify;
+
+}
+
+.todo{
+  background-color: #eec0c6;
+  background-image: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);
+    height: 125%;
+    position: relative;
+    margin-top: -30%;
+    padding-top: 35%;
+}
+
+.cardbg{
+  background-color: #a76f77;
+  background-image: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.assign{
+  color: white;
+  font-size: 10px;
+  margin-left: 48%;
+}
+
+

@@ -1,0 +1,7 @@
+{
+  "name": "Fserelease_offline",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

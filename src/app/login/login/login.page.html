@@ -1,0 +1,47 @@
+
+<ion-content>
+
+  <div class="todo">
+
+
+            <div class="corpo">
+
+
+                <ion-card class="cardbg">
+                  <ion-card-header>
+                    <div id="logo">
+                      <img src="assets/logo.png"  style="width: 80px; height: 80px;" />
+                    </div>
+                  </ion-card-header>
+
+                  <ion-card-content>
+                    <form id="form" #user="ngForm" >
+
+                      <div class="inputname">
+                        <input type="text" id="nome" name="nome" placeholder="Digite o email"  required  [(ngModel)]="usuario.email"> <br><br>
+                      </div>
+                      <div class="inputpass">
+
+                        <input type="password" id="nome" name="nome" placeholder="Senha do Usuário "  required [(ngModel)]="usuario.password"> <br><br>
+
+                      </div>
+
+                      <div class="button"><ion-button  shape="round" (click)="login()" [disabled]="user.invalid" >ENTRAR</ion-button></div>
+
+
+
+
+                      </form>
+                  </ion-card-content>
+                </ion-card>
+
+
+
+          </div>
+          <p class="assign">Offline version  ConectaAppsDev</p>
+          
+
+
+</div>
+
+</ion-content>

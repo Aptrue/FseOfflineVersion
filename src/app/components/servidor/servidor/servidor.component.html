@@ -1,0 +1,51 @@
+<ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" (ionRefresh)="doRefresh($event)">
+  <ion-refresher-content></ion-refresher-content>
+</ion-refresher> <!--Refrescar-->
+
+<ion-list >
+
+  <ion-item-sliding *ngFor="let item  of inquerido">
+
+          <ion-item>
+            <ion-col size="10">
+
+              <ion-card  >
+                <ion-card-content>
+                 <span>Família {{ item.nome }}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  id: {{ item.key.substr(0,8) }}  <br>
+                  Bairro:      {{ item.bairro }} <br>
+                  Data:        {{ item.created_at.substr(0,10) }}<br>
+                  Vulnerabilidade:{{ item.vulnerabilidade }}
+
+
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                 <ion-icon name="trash-outline" (click)="presentAlertConfirm(item.key,item)" slot="end"></ion-icon>
+                 &nbsp; &nbsp;&nbsp;
+                 <ion-icon name="create-outline" routerLink slot="end" routerLink="/editar-fse/{{ item.key }}"></ion-icon>
+
+                </ion-card-content>
+
+              </ion-card>
+
+            </ion-col>
+          </ion-item>
+
+          <ion-item-options side="start">
+
+            <ion-item-option>
+
+              <ion-icon slot="icon-only" name="create" color="secundary" routerLink="/editar-fse/{{ item.key }}"></ion-icon>
+
+            </ion-item-option>
+
+            <ion-item-option>
+
+              <ion-icon slot="icon-only" name="trash" color="danger" (click)="presentAlertConfirm(item.key,item)"></ion-icon>
+
+            </ion-item-option>
+
+          </ion-item-options>
+
+  </ion-item-sliding>
+
+</ion-list>

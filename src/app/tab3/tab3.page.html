@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-menu-button slot="start" ></ion-menu-button>
+    <ion-title>
+      Acividades
+    </ion-title>
+  </ion-toolbar>
+
+
+  <ion-toolbar >
+    <ion-segment  [(ngModel)]="selectedSegment">
+        <ion-segment-button value="local">
+            <ion-label>Local</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="servidor"><ion-label>Servidor</ion-label></ion-segment-button>
+    </ion-segment>
+ </ion-toolbar>
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+ 	<!--Area dos segmentos-->
+   <div [ngSwitch]="selectedSegment">
+
+          <!--caso seja local-->
+        <div *ngSwitchCase="'local'">
+
+              <ion-searchbar placeholder="Pesquisar"
+                (ionClear)="doSerchClear()"
+                (ionChange)="doSerchBarChange($event)">
+              </ion-searchbar>
+
+              <ion-list>
+                <ion-item-sliding *ngFor="let contact of contacts">
+                  <ion-item>
+                    <ion-label>{{contact.name}}</ion-label>
+                    <span>{{ contact.id }}</span>
+                  </ion-item>
+
+                  <ion-item-options side="start">
+                    <ion-item-option [routerLink]="['edit', contact.id]">
+                      <ion-icon slot="icon-only" name="create" color="secondary"></ion-icon>
+                    </ion-item-option>
+                    <ion-item-option (click)="delete(contact)">
+                      <ion-icon slot="icon-only" name="trash" color="danger"></ion-icon>
+                    </ion-item-option>
+                  </ion-item-options>
+                </ion-item-sliding>
+              </ion-list>
+
+        </div>
+
+          <!--caso seja servidor-->
+
+          <div *ngSwitchCase="'servidor'">
+
+                      <app-servidor></app-servidor>
+
+          </div>
+
+  </div>
+
+
+
+</ion-content>
