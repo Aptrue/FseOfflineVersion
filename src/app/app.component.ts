@@ -10,8 +10,8 @@ import { BehaviorSubject } from 'rxjs';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './servicos/authentication/authentication.service';
-import { DatabaseService } from './servicos/database/database.service';
 import { ServidorService } from './servicos/service/service.service';
+import { CrudService } from './servicos/database/crud.service';
 
 @Component({
   selector: 'app-root',
@@ -21,13 +21,14 @@ import { ServidorService } from './servicos/service/service.service';
 export class AppComponent {
 
   login:boolean=false;
+  
   constructor(
     private Storage : Storage,
     private Platform: Platform,
     private authService: AuthenticationService,
     private router: Router,
-    private db: DatabaseService,
-    private ServidorService: ServidorService
+    private ServidorService: ServidorService,
+    private crud: CrudService
   ) {
 
     this.initializeApp();
@@ -40,7 +41,8 @@ export class AppComponent {
     this.Platform.ready().then(
 
                         () => {
-                                      this.db.openDatabase();
+
+                                      this.crud.databaseConn(); //conecatndo a base de dados;
 
                                       this.ServidorService.getFamilias();
                                       this.authService.authenticationState.subscribe( estado =>

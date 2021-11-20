@@ -22,6 +22,7 @@
     <preference name="StatusBarBackgroundColor" value="#3880ff" />
     <preference name="StatusBarStyle" value="lightcontent" />
     <preference name="StatusBarDefaultScrollToTop" value="false" />
+    <preference name="SplashNavigationBarBackgroundColor" value="#3880ff" />
     <platform name="android">
         <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android">
             <application android:networkSecurityConfig="@xml/network_security_config" />

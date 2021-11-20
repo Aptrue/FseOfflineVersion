@@ -10,7 +10,6 @@ import { Tab3PageRoutingModule } from './tab3-routing.module';
 
 //meus componets
 import { ServidorComponent } from '../components/servidor/servidor/servidor.component';
-import { LocalComponent } from '../components/local/local/local.component';
 
 @NgModule({
   imports: [
@@ -21,6 +20,6 @@ import { LocalComponent } from '../components/local/local/local.component';
     RouterModule.forChild([{ path: '', component: Tab3Page }]),
     Tab3PageRoutingModule,
   ],
-  declarations: [Tab3Page,LocalComponent,ServidorComponent]
+  declarations: [Tab3Page,ServidorComponent]
 })
 export class Tab3PageModule {}

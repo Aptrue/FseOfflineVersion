@@ -3,10 +3,9 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable no-trailing-spaces */
 import { Component, OnInit } from '@angular/core';
-import { Contact } from '../../interface/contactos';
-import { LocalDatabaseServiceService } from '../../servicos/localDatabaseService/local-database-service.service';
 import { ToastController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { CrudService } from 'src/app/servicos/database/crud.service';
 
 @Component({
   selector: 'app-creat-family',
@@ -15,55 +14,30 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CreatFamilyPage implements OnInit {
 
-  title: string = 'Novo contato';
-  contact: Contact;
+
+  nameVal: string = '';
+  emailVal: string = '';
 
   constructor(
-    private contactService: LocalDatabaseServiceService,
     private toastCtrl: ToastController,
     private route: ActivatedRoute,
+    public crud: CrudService
     ) { }
 
-    ngOnInit() {
-      this.contact = new Contact();
+    ngOnInit() { }
 
-      const idParam = this.route.snapshot.paramMap.get('id');
-      if (idParam) {
-        this.title = 'Editar contato';
-        this.loadContact(parseInt(idParam));
-      }
-    }
+  ionViewDidEnter() {
+    this.crud.getAllUsers();
+  }
 
-    async loadContact(id: number) {
-      this.contact = await this.contactService.getById(id);
-    }
+  createUser(){
+    this.crud.addItem(this.nameVal, this.emailVal);
+  }
 
-    async onSubmit() {
-      try {
-        const result = await this.contactService.save(this.contact);
-        this.contact.id = result.insertId;
+  remove(user) {
+    this.crud.deleteUser(user);
+  }
 
-        const toast = await this.toastCtrl.create({
-          header: 'Sucesso',
-          message: 'Contato salvo com sucesso.',
-          color: 'success',
-          position: 'bottom',
-          duration: 3000
-        });
-
-        toast.present();
-      } catch (error) {
-        const toast = await this.toastCtrl.create({
-          header: 'Erro',
-          message: 'Ocorreu um erro ao tentar salvar o Contato.',
-          color: 'danger',
-          position: 'bottom',
-          duration: 3000
-        });
-
-        toast.present();
-      }
-    }
 
 
 }
