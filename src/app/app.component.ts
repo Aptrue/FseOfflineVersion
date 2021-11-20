@@ -41,6 +41,7 @@ export class AppComponent {
 
                         () => {
                                       this.db.openDatabase();
+
                                       this.ServidorService.getFamilias();
                                       this.authService.authenticationState.subscribe( estado =>
                                         {
