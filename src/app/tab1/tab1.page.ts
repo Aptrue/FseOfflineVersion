@@ -8,6 +8,9 @@ import { AlertController } from '@ionic/angular';
 import { AuthenticationService } from '../servicos/authentication/authentication.service';
 import { ServidorService } from '../servicos/service/service.service';
 
+
+
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -24,15 +27,22 @@ export class Tab1Page {
     private Router: Router,
     public alertController: AlertController,
     private authService: AuthenticationService,
-    private servidor: ServidorService
+    private servidor: ServidorService,
+
+
   ) {
+
+
+    /**Obtendo dados do utilizador */
 
     this.Storage.get('usuario').then((data)=>{
       this.nome=data.name;
       console.log(this.nome);
     });
 
+    /**Funcao token interceptor pra requisicoes Http -- Passsando Token */
     this.servidor.tokenInterceptor();
+
   }
 
 
@@ -63,7 +73,6 @@ export class Tab1Page {
 
     await alert.present();
   }
-
 
 
 

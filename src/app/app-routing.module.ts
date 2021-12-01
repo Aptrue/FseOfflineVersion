@@ -13,13 +13,18 @@ const routes: Routes = [
     loadChildren: () => import('./login/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'creat-family',
-    loadChildren: () => import('./paginas/creat-family/creat-family.module').then( m => m.CreatFamilyPageModule)
+    path: 'fse',
+    loadChildren: () => import('./paginas/fse/fse.module').then( m => m.FsePageModule)
   },
   {
-    path: 'edit-family',
-    loadChildren: () => import('./paginas/edit-family/edit-family.module').then( m => m.EditFamilyPageModule)
+    path: 'moradia',
+    loadChildren: () => import('./paginas/moradia/moradia.module').then( m => m.MoradiaPageModule)
+  },
+  {
+    path: 'num-crianca-adulto',
+    loadChildren: () => import('./paginas/num-crianca-adulto/num-crianca-adulto.module').then( m => m.NumCriancaAdultoPageModule)
   }
+
 ];
 @NgModule({
   imports: [

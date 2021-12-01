@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CreatFamilyPageRoutingModule } from './creat-family-routing.module';
+import { MoradiaPageRoutingModule } from './moradia-routing.module';
 
-import { CreatFamilyPage } from './creat-family.page';
+import { MoradiaPage } from './moradia.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CreatFamilyPageRoutingModule
+    MoradiaPageRoutingModule
   ],
-  declarations: [CreatFamilyPage]
+  declarations: [MoradiaPage]
 })
-export class CreatFamilyPageModule {}
+export class MoradiaPageModule {}

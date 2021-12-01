@@ -11,7 +11,8 @@ import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './servicos/authentication/authentication.service';
 import { ServidorService } from './servicos/service/service.service';
-import { CrudService } from './servicos/database/crud.service';
+import { FseService } from './servicos/database/fse/fse.service';
+import { MoradiaService } from './servicos/database/moradia/moradia.service';
 
 @Component({
   selector: 'app-root',
@@ -21,14 +22,15 @@ import { CrudService } from './servicos/database/crud.service';
 export class AppComponent {
 
   login:boolean=false;
-  
+
   constructor(
     private Storage : Storage,
     private Platform: Platform,
     private authService: AuthenticationService,
     private router: Router,
     private ServidorService: ServidorService,
-    private crud: CrudService
+    private fse: FseService,
+    private moradia: MoradiaService
   ) {
 
     this.initializeApp();
@@ -42,7 +44,8 @@ export class AppComponent {
 
                         () => {
 
-                                      this.crud.databaseConn(); //conecatndo a base de dados;
+                                      this.fse.Connection();//inicializando o servico fse;
+                                      this.moradia.coennection();
 
                                       this.ServidorService.getFamilias();
                                       this.authService.authenticationState.subscribe( estado =>

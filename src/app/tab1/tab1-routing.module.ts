@@ -8,8 +8,8 @@ const routes: Routes = [
     component: Tab1Page,
   },
   {
-    path: 'creat-family',
-    loadChildren: () => import('../paginas/creat-family/creat-family-routing.module').then( m => m.CreatFamilyPageRoutingModule)
+    path: 'fse',
+    loadChildren: ()=> import('../paginas/fse/fse.module').then(m => m.FsePageModule)
   }
 ];
 

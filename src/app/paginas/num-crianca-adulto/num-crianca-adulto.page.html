@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home/cadastro/moradia" title="voltar" value="voltar" (click)="limpar_ao_voltar()"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Número de formulário </ion-title>
+
+    <ion-icon name="checkmark-outline" slot="end" id="confirmar" (click)="ir()"></ion-icon>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+          <table>
+            <ion-card>
+              <ion-row>
+                <ion-col>
+                  <ion-title class="title">Adultos</ion-title>
+                  <br>
+                  <ion-icon name="chevron-up-outline"  (click)="aumentarAdulto()"></ion-icon>
+                  <br><br>
+                  {{adultos}}
+                  <br><br>
+                  <ion-icon name="chevron-down-outline" (click)="dimuirAdulto()"></ion-icon>
+                  <br><br>
+                </ion-col>
+
+                <ion-col>
+                  <ion-title class="title">Crianças</ion-title>
+                  <br>
+                  <ion-icon name="chevron-up-outline"  (click)="aumentarCrianca()"></ion-icon>
+                  <br><br>
+                  {{crianca}}
+                  <br><br>
+                  <ion-icon name="chevron-down-outline" (click)="diminuirCrianca()"></ion-icon>
+                </ion-col>
+              </ion-row>
+            </ion-card>
+          </table>
+
+</ion-content>
+

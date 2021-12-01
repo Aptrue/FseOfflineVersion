@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { CreatFamilyPage } from './creat-family.page';
+import { FsePage } from './fse.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: CreatFamilyPage
+    component: FsePage
+  },
+  {
+    path: 'moradia',
+    loadChildren: () => import('../moradia/moradia.module').then(m =>m.MoradiaPageModule)
   }
 ];
 
@@ -14,4 +18,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class CreatFamilyPageRoutingModule {}
+export class FsePageRoutingModule {}

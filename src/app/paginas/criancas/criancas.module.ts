@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EditFamilyPageRoutingModule } from './edit-family-routing.module';
+import { CriancasPageRoutingModule } from './criancas-routing.module';
 
-import { EditFamilyPage } from './edit-family.page';
+import { CriancasPage } from './criancas.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EditFamilyPageRoutingModule
+    CriancasPageRoutingModule
   ],
-  declarations: [EditFamilyPage]
+  declarations: [CriancasPage]
 })
-export class EditFamilyPageModule {}
+export class CriancasPageModule {}
