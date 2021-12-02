@@ -9,8 +9,8 @@ const routes: Routes = [
     component: NumCriancaAdultoPage
   },
   {
-    path:'criancas',
-    loadChildren: () => import ('../criancas/criancas.module').then(m => m.CriancasPageModule)
+    path: 'crianca/:id0/:id1',
+    loadChildren: () => import('../crianca/crianca.module').then( m => m.CriancaPageModule)
   }
 
 ];

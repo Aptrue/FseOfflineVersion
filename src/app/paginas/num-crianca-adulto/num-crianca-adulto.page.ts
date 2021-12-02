@@ -54,10 +54,32 @@ limpar_ao_voltar(){
 
  }
 
+ irPara(){
 
-ir(){
+  if(this.crianca==0 && this.adultos!=0){
 
-    this.router.navigate(['criancas']);
+       this.router.navigate(['adultos'+'/'+this.adultos]);
+  }
+
+  if(this.crianca!=0 && this.adultos==0){
+
+    this.router.navigate(['crianca'+'/'+this.crianca+'/'+this.adultos]);
+ }
+
+ if (this.crianca==0 && this.adultos==0){
+
+    this.router.navigate(['confirmar']);
+
+ }
+
+ if(this.crianca!=0 && this.adultos!=0){
+
+  this.router.navigate(['crianca'+'/'+this.crianca+'/'+this.adultos]);
+
+ }
+
+
+
 
 }
 

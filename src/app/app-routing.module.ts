@@ -23,7 +23,16 @@ const routes: Routes = [
   {
     path: 'num-crianca-adulto',
     loadChildren: () => import('./paginas/num-crianca-adulto/num-crianca-adulto.module').then( m => m.NumCriancaAdultoPageModule)
+  },
+  {
+    path: 'crianca/:id0/:id1',
+    loadChildren: () => import('./paginas/crianca/crianca.module').then( m => m.CriancaPageModule)
+  },
+  {
+    path:'adultos/:id',
+    loadChildren: () => import('./paginas/adultos/adultos.module').then(m => m.AdultosPageModule)
   }
+
 
 ];
 @NgModule({

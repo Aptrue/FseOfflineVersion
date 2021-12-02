@@ -13,6 +13,8 @@ import { AuthenticationService } from './servicos/authentication/authentication.
 import { ServidorService } from './servicos/service/service.service';
 import { FseService } from './servicos/database/fse/fse.service';
 import { MoradiaService } from './servicos/database/moradia/moradia.service';
+import { CriancasService } from './servicos/database/criancas/criancas.service';
+import { AdultosService } from './servicos/database/adultos/adultos.service';
 
 @Component({
   selector: 'app-root',
@@ -30,7 +32,9 @@ export class AppComponent {
     private router: Router,
     private ServidorService: ServidorService,
     private fse: FseService,
-    private moradia: MoradiaService
+    private moradia: MoradiaService,
+    private crianca: CriancasService,
+    private adultos: AdultosService
   ) {
 
     this.initializeApp();
@@ -46,6 +50,8 @@ export class AppComponent {
 
                                       this.fse.Connection();//inicializando o servico fse;
                                       this.moradia.coennection();
+                                      this.crianca.Connection();
+                                      this.adultos.Connection();
 
                                       this.ServidorService.getFamilias();
                                       this.authService.authenticationState.subscribe( estado =>

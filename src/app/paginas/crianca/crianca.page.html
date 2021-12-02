@@ -1,0 +1,177 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" (click)="limparStorage()" title="voltar" value="voltar" ></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Crianças {{verificar}}/{{criancaN}}</ion-title>
+
+    <button type="submit" [disabled]="cr.invalid"  slot="end" (click)="enviarpara(cr)" class="btnEnviar"><ion-icon name="checkmark-outline"  id="confirmar" ></ion-icon></button>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+     <div>
+      <form #cr="ngForm" (ngSubmit)="enviarpara(cr)" >
+
+        <label for="id">id</label>
+        <input type="number" name="id"[(ngModel)]="crianca.id">
+
+        <label for="nomecompleto">Nome Completo</label>
+        <input type="text" id="fname" name="nome_completo" placeholder="Digite o nome completo" required [(ngModel)]="crianca.nome_completo">
+
+        <label for="fname">Data de Nascimento</label>
+        <input type="date" id="fname" name="data_de_nascimento" placeholder="Digite o nome completo" required [(ngModel)]="crianca.data_de_nascimento">
+
+
+        <label for="sexo">Sexo</label>
+          <ion-select class="select" placeholder="Digitr o sexo" name="sexo"  required [(ngModel)]="crianca.sexo">
+            <ion-select-option value="Masculino">Masculino</ion-select-option>
+            <ion-select-option value="Feminino">Feminino</ion-select-option>
+          </ion-select>
+
+          <label for="estuda">Frequenta a escola?</label>
+          <ion-select class="select" placeholder="Escolha Sim ou Não" name="estuda" (ionChange)="mudar(valor.value)" #valor required [(ngModel)]="crianca.estuda">
+            <ion-select-option value="sim">Sim </ion-select-option>
+            <ion-select-option value="nao">Não</ion-select-option>
+          </ion-select>
+
+
+          <label for="classe" *ngIf="outrosCampos">Classe</label>
+          <ion-select class="select" placeholder="Digite a classe da criança" name="classe" *ngIf="outrosCampos" required [(ngModel)]="crianca.classe">
+            <ion-select-option value="1">1</ion-select-option>
+            <ion-select-option value="2">2</ion-select-option>
+            <ion-select-option value="3">3 </ion-select-option>
+            <ion-select-option value="4">4</ion-select-option>
+            <ion-select-option value="5">5</ion-select-option>
+            <ion-select-option value="6">6</ion-select-option>
+            <ion-select-option value="7">7</ion-select-option>
+            <ion-select-option value="8">8 </ion-select-option>
+            <ion-select-option value="9">9</ion-select-option>
+            <ion-select-option value="10">10</ion-select-option>
+            <ion-select-option value="11">11</ion-select-option>
+            <ion-select-option value="12">12</ion-select-option>
+          </ion-select>
+
+          <label for="material" *ngIf="outrosCampos">Tem material escola </label>
+          <ion-select class="select" placeholder="Material escolar" name="material" *ngIf="outrosCampos" required [(ngModel)]="crianca.material">
+            <ion-select-option value="Sim">Sim </ion-select-option>
+            <ion-select-option value="Não">Não</ion-select-option>
+          </ion-select>
+
+          <label for="uniforme" *ngIf="outrosCampos">Tem uniforme escolar ? </label>
+          <ion-select class="select" placeholder="Material escolar" name="uniforme" *ngIf="outrosCampos" required [(ngModel)]="crianca.uniforme">
+            <ion-select-option value="Sim">Sim </ion-select-option>
+            <ion-select-option value="Não">Não</ion-select-option>
+          </ion-select>
+
+          <label for="cartaodevacina">Tem cartão de vacina atualizado? </label>
+          <ion-select class="select"  placeholder="Escolha Sim ou Não" name="cartao_de_vacina" required [(ngModel)]="crianca.cartao_de_vacina">
+            <ion-select-option value="Sim">Sim </ion-select-option>
+            <ion-select-option value="Não">Não</ion-select-option>
+          </ion-select>
+
+          <label for="doenca">Doenças </label>
+          <ion-select class="select" placeholder="Escolha a Doença" name="doenca" required [(ngModel)]="crianca.doenca">
+            <ion-select-option value="Nenhuma">Nenhuma</ion-select-option>
+            <ion-select-option value="Desnutrição">Desnutrição</ion-select-option>
+            <ion-select-option value="HIV">HIV</ion-select-option>
+            <ion-select-option value="Tosse/Dificuldade respiratória/TB">Tosse/Dificuldade respiratória/TB</ion-select-option>
+            <ion-select-option value="Diarreia">Diarreia</ion-select-option>
+            <ion-select-option value="Febres">Febres</ion-select-option>
+            <ion-select-option value="Malária">Malária</ion-select-option>
+            <ion-select-option value="Covid-19">Covid-19</ion-select-option>
+          </ion-select>
+
+          <label for="tratamento">Em Tratamento</label>
+          <ion-select class="select"  placeholder="Escolha Sim ou Não" name="tratamento" required [(ngModel)]="crianca.tratamento">
+            <ion-select-option value="Sim">Sim </ion-select-option>
+            <ion-select-option value="Não">Não</ion-select-option>
+          </ion-select>
+
+          <label for="deficiencia">Deficiência</label>
+          <ion-select class="select" placeholder="Escolha a deficiencia" name="deficiencia" required [(ngModel)]="crianca.deficiencia">
+            <ion-select-option value="Nenhuma ">Nenhuma </ion-select-option>
+            <ion-select-option value="Física">Física</ion-select-option>
+            <ion-select-option value="Mental">Mental</ion-select-option>
+          </ion-select>
+
+          <label for="">  Dorme com rede Mosquiteira?</label>
+          <ion-select class="select"  placeholder="Escolha Sim ou Não" name="rede_mosquiteira" required [(ngModel)]="crianca.rede_mosquiteira">
+            <ion-select-option value="Sim">Sim</ion-select-option>
+            <ion-select-option value="Não">Não</ion-select-option>
+          </ion-select>
+
+
+          <label for="">Grávida?</label>
+          <ion-select class="select"  placeholder="Escolha Sim ou Não" name="gravida" (ionChange)="mudargravida(valorg.value)" #valorg required [(ngModel)]="crianca.gravida">
+            <ion-select-option value="Sim">Sim</ion-select-option>
+            <ion-select-option value="Não">Não</ion-select-option>
+          </ion-select>
+
+          <label for="" *ngIf="verGravida">No caso de estar grávida faz controle pré-natal?</label>
+          <ion-select class="select"  placeholder="Escolha Sim ou Não" name="control_prenatal" *ngIf="verGravida" required [(ngModel)]="crianca.control_prenatal">
+            <ion-select-option value="Sim">Sim</ion-select-option>
+            <ion-select-option value="Não">Não</ion-select-option>
+          </ion-select>
+
+
+          <label for="">Órfão?</label>
+          <ion-select class="select" placeholder="Órfão ?" name="orfao" required  [(ngModel)]="crianca.orfao">
+            <ion-select-option value="Não">Não</ion-select-option>
+            <ion-select-option value="Pai"> Pai</ion-select-option>
+            <ion-select-option value="Mãe">Mãe</ion-select-option>
+            <ion-select-option value="Ambos">Ambos</ion-select-option>
+          </ion-select>
+
+          <label for="">Vive com quem?</label>
+          <ion-select class="select" placeholder="Escolha com vive" name="vive_com_quem" required [(ngModel)]="crianca.vive_com_quem">
+            <ion-select-option value="Pai">Pai</ion-select-option>
+            <ion-select-option value="Mãe"> Mãe</ion-select-option>
+            <ion-select-option value="Pai e Mãe">Pai e Mãe</ion-select-option>
+            <ion-select-option value="Avô/avó"> Avô/avó</ion-select-option>
+            <ion-select-option value="Tio/Tia">Tio/Tia</ion-select-option>
+            <ion-select-option value="Irmão/Irmã">Irmão/Irmã</ion-select-option>
+          </ion-select>
+
+          <label for="">Já tiveste Conflito com a lei?</label>
+          <ion-select class="select" placeholder="Escolha sim ou Não" name="conflito_com_a_lei" required [(ngModel)]="crianca.conflito_com_a_lei">
+            <ion-select-option value="Sim">Sim</ion-select-option>
+            <ion-select-option value="Não">Não</ion-select-option>
+          </ion-select>
+
+
+          <label for="registrodenascimneto">Tem Registro de Nascimento?</label>
+          <ion-select class="select" placeholder="Escolha sim ou Não" name="registro_de_nascimento" required  [(ngModel)]="crianca.registro_de_nascimento">
+            <ion-select-option value="Sim">Sim</ion-select-option>
+            <ion-select-option value="Não">Não</ion-select-option>
+          </ion-select>
+
+
+      </form>
+
+    </div>
+    <section>
+
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ion-content>

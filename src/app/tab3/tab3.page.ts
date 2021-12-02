@@ -21,6 +21,7 @@ export class Tab3Page {
     private toastCtrl: ToastController,
     private alertCtrl: AlertController) {
 
+           console.log(this.fseService.fse);
 
     }
 

@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CriancasPageRoutingModule } from './criancas-routing.module';
+import { CriancaPageRoutingModule } from './crianca-routing.module';
 
-import { CriancasPage } from './criancas.page';
+import { CriancaPage } from './crianca.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CriancasPageRoutingModule
+    CriancaPageRoutingModule
   ],
-  declarations: [CriancasPage]
+  declarations: [CriancaPage]
 })
-export class CriancasPageModule {}
+export class CriancaPageModule {}

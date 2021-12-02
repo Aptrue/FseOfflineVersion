@@ -1,0 +1,95 @@
+#confirmar{
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+#titulo{
+ font-size: medium;
+}
+
+label {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(116, 116, 116);
+  margin-bottom: 10px;
+}
+input[type=text]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=date] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=number]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+::placeholder{
+  color: rgb(194, 194, 194);
+}
+
+.p{
+  color: rgb(194, 194, 194);
+}
+
+
+
+.select{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-shadow: 0 1px 4px 0 rgba(29, 29, 29, 0.2);
+  border: 1 solid rgb(83, 83, 83);
+  border-radius: 4px;
+  background-color: white;
+}
+
+section
+{
+  border-radius: 5px;
+  background-color: #ebebeb;
+  padding: 20px;
+  height: 90px;
+}
+
+
+.btnEnviar{
+  background-color: #3880ff;
+  color: white;
+  }

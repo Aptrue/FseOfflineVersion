@@ -1,7 +1,27 @@
+
+.select{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-shadow: 0 1px 4px 0 rgba(29, 29, 29, 0.2);
+  border: 1 solid rgb(83, 83, 83);
+  border-radius: 4px;
+  background-color: white;
+}
+
+.btnEnviar{
+  background-color: #3880ff;
+  }
+
 #confirmar{
   width: 30px;
   height: 30px;
   margin-right: 5px;
+  color: white;
+}
+
+.btnEnviar{
+background-color: #3880ff;
 }
 
 #titulo{
@@ -11,9 +31,8 @@
 label {
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   color: rgb(116, 116, 116);
-  margin-bottom: 10px;
 }
-input[type=text]{
+input[type=text], select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -23,17 +42,7 @@ input[type=text]{
   box-sizing: border-box;
 }
 
-input[type=date] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-input[type=number]{
+input[type=number], select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -59,6 +68,15 @@ div {
   background-color: #ffffff;
   padding: 20px;
 }
+input[type=date] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 
 ::placeholder{
   color: rgb(194, 194, 194);
@@ -69,27 +87,15 @@ div {
 }
 
 
-
-.select{
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-shadow: 0 1px 4px 0 rgba(29, 29, 29, 0.2);
-  border: 1 solid rgb(83, 83, 83);
-  border-radius: 4px;
-  background-color: white;
+.ng-invalid.ng-touched:not(form){
+  border: 1px solid red;
 }
+
 
 section
 {
   border-radius: 5px;
-  background-color: #ffffff;
+  background-color: #ebebeb;
   padding: 20px;
   height: 90px;
 }
-
-
-.btnEnviar{
-  background-color: #3880ff;
-  color: white;
-  }

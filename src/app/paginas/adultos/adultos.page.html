@@ -1,0 +1,169 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" (click)="limparStorage()" title="voltar" value="voltar" ></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Adulto {{verificar}}/{{valoradulto}}</ion-title>
+
+
+    <button type="submit" [disabled]="ad.invalid"  slot="end" (click)="enviarpara(ad)" class="btnEnviar"><ion-icon name="checkmark-outline"  id="confirmar" ></ion-icon></button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div>
+    <form #ad="ngForm" (ngSubmit)="enviarpara(ad)">
+
+      <label for="id">id</label>
+      <input type="number" name="id"[(ngModel)]="adultos.id">
+
+      <label for="nomedoadulto">Nome Completo</label>
+      <input type="text" name="nome_do_adulto" placeholder="Digite o nome completo"  required [(ngModel)]="adultos.nome_do_adulto">
+
+      <label for="datadenascimento">Data de Nascimento</label>
+      <input type="date" id="fname" name="data_de_nascimento" placeholder="Digite o nome completo"  required  [(ngModel)]="adultos.data_de_nascimento">
+
+
+      <label for="sexo">Sexo</label>
+        <ion-select class="select" placeholder="Digitr o sexo" name="sexo" required  [(ngModel)]="adultos.sexo">
+          <ion-select-option>Masculino</ion-select-option>
+          <ion-select-option>Feminino</ion-select-option>
+        </ion-select>
+
+      <label for="alfabetizado">
+        Alfabetizado
+      </label>
+
+      <ion-select class="select" placeholder="Escolha sim ou Não" name="alfabetizado"  required  [(ngModel)]="adultos.alfabetizado">
+        <ion-select-option value="Sim">Sim</ion-select-option>
+        <ion-select-option value="Sim">Não</ion-select-option>
+      </ion-select>
+
+      <label for="nivelescolar">
+        Nível de Escolaridade
+      </label>
+
+      <ion-select class="select" placeholder="Escolha o nivel de Escolaridade" name="nivel_escolar" required  [(ngModel)]="adultos.nivel_escolar">
+        <ion-select-option value="Primário">Primário</ion-select-option>
+        <ion-select-option value="Secundário">Secundário</ion-select-option>
+        <ion-select-option value="Médio">Médio</ion-select-option>
+        <ion-select-option value="Licenciado">Licenciado</ion-select-option>
+      </ion-select>
+
+
+      <label for="fontederendimento">
+        Trabalha ou tem fonte de rendimento?
+      </label>
+
+      <ion-select class="select" placeholder="Escolha sim ou Não" name="fonte_de_rendimento" required  [(ngModel)]="adultos.fonte_de_rendimento">
+        <ion-select-option value="Sim">Sim</ion-select-option>
+        <ion-select-option value="Sim">Não</ion-select-option>
+      </ion-select>
+
+
+      <label for="temcontracto">
+      Tem contrato
+      </label>
+
+      <ion-select class="select" placeholder="Escolha sim ou Não" name="tem_contracto"  required  [(ngModel)]="adultos.tem_contracto">
+        <ion-select-option value="Sim">Sim</ion-select-option>
+        <ion-select-option value="Sim">Não</ion-select-option>
+      </ion-select>
+
+
+      <label for="doenca">
+          Doenças
+      </label>
+
+        <ion-select class="select" placeholder="Escolha sim ou Não" name="doenca" required  [(ngModel)]="adultos.doenca">
+          <ion-select-option value="Nenhuma">Nenhuma</ion-select-option>
+          <ion-select-option value="Desnutrição">Desnutrição</ion-select-option>
+          <ion-select-option value="HIV">HIV</ion-select-option>
+          <ion-select-option value="Tosse/Dificuldade respiratória/TB">Tosse/Dificuldade respiratória/TB</ion-select-option>
+          <ion-select-option value="Diarreia">Diarreia</ion-select-option>
+          <ion-select-option value="Febres">Febres</ion-select-option>
+          <ion-select-option value="Malária">Malária</ion-select-option>
+          <ion-select-option value="Covid-19">Covid-19</ion-select-option>
+        </ion-select>
+
+        <label for="deficiencia">
+          Deficiência
+        </label>
+
+        <ion-select class="select" placeholder="Escolha sim ou Não" name="deficiencia" required  [(ngModel)]="adultos.deficiencia">
+          <ion-select-option value="Nenhuma">Nenhuma</ion-select-option>
+          <ion-select-option value="Física">Física</ion-select-option>
+          <ion-select-option value="Mental">Mental</ion-select-option>
+        </ion-select>
+
+        <label for="acamado">
+          Acamado?
+          </label>
+
+          <ion-select class="select" placeholder="Escolha sim ou Não" name="acamado" required  [(ngModel)]="adultos.acamado">
+            <ion-select-option value="Sim">Sim</ion-select-option>
+            <ion-select-option value="Não">Não</ion-select-option>
+          </ion-select>
+
+          <label for="gravida">
+             Grávida
+            </label>
+
+            <ion-select class="select" placeholder="Escolha sim ou Não" name="gravida" (ionChange)="mudargravida(valorg.value)" #valorg  required  [(ngModel)]="adultos.gravida">
+              <ion-select-option value="Sim">Sim</ion-select-option>
+              <ion-select-option value="Não">Não</ion-select-option>
+            </ion-select>
+
+
+            <label for="prenatal" *ngIf="verGravida">
+            No caso de estar grávida faz controle pré-natal?
+            </label>
+
+            <ion-select class="select" placeholder="Escolha sim ou Não" name="control_pre_natal" *ngIf="verGravida" required  [(ngModel)]="adultos.control_pre_natal">
+                <ion-select-option value="Sim">Sim</ion-select-option>
+                <ion-select-option value="Não">Não</ion-select-option>
+            </ion-select>
+
+
+            <label for="zonacomcalanidade">
+            Vive numa zona sujeita a calamidades naturais?
+            </label>
+
+              <ion-select class="select" placeholder="Escolha sim ou Não" name="zona_com_calamidade" required  [(ngModel)]="adultos.zona_com_calamidade">
+                  <ion-select-option value="Nao">Não</ion-select-option>
+                  <ion-select-option value="Inundação">Inundação</ion-select-option>
+                  <ion-select-option value="Seca">Seca</ion-select-option>
+                  <ion-select-option value="Ciclone">Ciclone</ion-select-option>
+                  <ion-select-option value="Ventos">Ventos</ion-select-option>
+              </ion-select>
+
+
+              <label for="Bi">
+                Tem Bilhete de Identidade
+                </label>
+
+                <ion-select class="select" placeholder="Escolha sim ou Não" name="bilhete_de_identidade"  required [(ngModel)]="adultos.bilhete_de_identidade">
+                    <ion-select-option value="Sim">Sim</ion-select-option>
+                    <ion-select-option value="Não">Não</ion-select-option>
+                </ion-select>
+
+
+      </form>
+   </div>
+
+   <section>
+
+
+  </section>
+
+
+
+
+
+</ion-content>
+
