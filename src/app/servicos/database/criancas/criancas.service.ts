@@ -22,6 +22,7 @@ export class CriancasService {
   private dbInstance: SQLiteObject;
   readonly db_table: string = "userCrianca";
   crianca: Array <any> ;
+  criancaPorId: any [];
 
   constructor(
     public database: DatabaseService,
@@ -107,5 +108,20 @@ export class CriancasService {
         }, (e) => {
           alert(JSON.stringify(e.err));
         });
+    }
+
+
+    getUser(id): Promise<any> {
+      return this.dbInstance.executeSql(`SELECT * FROM ${this.db_table} WHERE id = ?`, [id])
+      .then((res) => {
+
+          this.criancaPorId.pop();
+          if (res.rows.length > 0) {
+            for (let i = 0; i < res.rows.length; i++) {
+              this.criancaPorId.push(res.rows.item(i));
+            }
+            return this.criancaPorId;
+          }
+      });
     }
 }

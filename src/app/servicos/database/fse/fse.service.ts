@@ -21,6 +21,7 @@ export class FseService {
   readonly db_table: string = "userUTableee";
 
   fse: Array <any> ;
+  fsePorId: any [];
 
 
   constructor(public database: DatabaseService,
@@ -103,11 +104,14 @@ export class FseService {
     getUser(id): Promise<any> {
       return this.dbInstance.executeSql(`SELECT * FROM ${this.db_table} WHERE id = ?`, [id])
       .then((res) => {
-        return {
-          user_id: res.rows.item(0).user_id,
-          name: res.rows.item(0).name,
-          email: res.rows.item(0).email
-        }
+
+          this.fsePorId.pop();
+          if (res.rows.length > 0) {
+            for (let i = 0; i < res.rows.length; i++) {
+              this.fsePorId.push(res.rows.item(i));
+            }
+            return this.fsePorId;
+          }
       });
     }
 

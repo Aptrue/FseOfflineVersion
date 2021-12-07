@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -31,7 +32,16 @@ const routes: Routes = [
   {
     path:'adultos/:id',
     loadChildren: () => import('./paginas/adultos/adultos.module').then(m => m.AdultosPageModule)
+  },
+  {
+    path: 'oque-deseja-editar/:id',
+    loadChildren: () => import('./paginas/editar_familias/oque-deseja-editar/oque-deseja-editar.module').then( m => m.OqueDesejaEditarPageModule)
+  },
+  {
+    path: 'fse-responsavel',
+    loadChildren: () => import('./paginas/editar_familias/fse-responsavel/fse-responsavel.module').then( m => m.FseResponsavelPageModule)
   }
+
 
 
 ];

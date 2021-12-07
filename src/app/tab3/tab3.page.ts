@@ -3,6 +3,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, ToastController } from '@ionic/angular';
 import { FseService } from '../servicos/database/fse/fse.service';
+import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 
 @Component({
@@ -19,7 +21,9 @@ export class Tab3Page {
   constructor(
     public fseService: FseService,
     private toastCtrl: ToastController,
-    private alertCtrl: AlertController) {
+    private alertCtrl: AlertController,
+    private router: Router,
+    private storage: Storage,) {
 
            console.log(this.fseService.fse);
 
@@ -63,7 +67,11 @@ export class Tab3Page {
 
 
 
+   editar(id){
 
+     this.router.navigate(['oque-deseja-editar',id]);
+
+   }
 
 
 
