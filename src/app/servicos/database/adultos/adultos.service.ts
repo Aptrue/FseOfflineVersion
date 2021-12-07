@@ -30,24 +30,21 @@ export class AdultosService {
 
                     `CREATE TABLE IF NOT EXISTS ${this.dbtable} (
                       id INTEGER,
-                      cartao_de_vacina varchar(255),
-                      classe varchar(255),
-                      conflito_com_a_lei varchar(255),
+                      id varchar(255),
+                      acamado varchar(255),
+                      alfabetizado varchar(255),
+                      bilhete_de_identidade varchar(255),
                       control_pre_natal varchar(255),
                       data_de_nascimento varchar(255),
                       deficiencia varchar(255),
                       doenca varchar(255),
-                      estuda varchar(255),
+                      fonte_de_rendimento varchar(255),
                       gravida varchar(255),
-                      material varchar(255),
-                      nome_completo varchar(255),
-                      orfao varchar(255),
-                      rede_mosquiteira varchar(255),
-                      registro_de_nascimento varchar(255),
+                      nivel_escolar varchar(255),
+                      nome_do_adulto varchar(255),
                       sexo varchar(255),
-                      tratamento varchar(255),
-                      uniforme varchar(255),
-                      vive_com_quem varchar(255)
+                      tem_contracto varchar(255),
+                      zona_com_calamidade varchar(255)
                       )`,
 
                       [])
