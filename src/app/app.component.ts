@@ -34,7 +34,7 @@ export class AppComponent {
     private fse: FseService,
     private moradia: MoradiaService,
     private crianca: CriancasService,
-    private adultos: AdultosService
+   private adultos: AdultosService
   ) {
 
     this.initializeApp();
