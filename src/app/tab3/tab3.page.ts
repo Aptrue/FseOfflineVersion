@@ -69,7 +69,7 @@ export class Tab3Page {
 
    editar(id){
 
-     this.router.navigate(['oque-deseja-editar',id]);
+     this.router.navigate(['oque-deseja-editar', id]);
 
    }
 

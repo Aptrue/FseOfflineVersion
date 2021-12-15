@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 import * as uuid from 'uuid';
-import { AlertController } from '@ionic/angular';
+import { AlertController, IonDatetime } from '@ionic/angular';
 import { AuthenticationService } from '../servicos/authentication/authentication.service';
 import { ServidorService } from '../servicos/service/service.service';
 
@@ -37,11 +37,15 @@ export class Tab1Page {
 
     this.Storage.get('usuario').then((data)=>{
       this.nome=data.name;
-      console.log(this.nome);
+      console.log(this.nome+''+'Id: '+data.id);
     });
 
     /**Funcao token interceptor pra requisicoes Http -- Passsando Token */
     this.servidor.tokenInterceptor();
+
+    //id
+
+    this.Storage.set('valorID', 1);
 
   }
 
