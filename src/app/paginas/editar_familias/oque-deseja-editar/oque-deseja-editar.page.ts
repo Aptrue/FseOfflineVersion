@@ -14,21 +14,42 @@ export class OqueDesejaEditarPage implements OnInit {
    valorDoparms: any;
   id: any = null;
 
+  chefe = {
+    id: null,
+    bairro:  null,
+    contacto:  null,
+    localizacao:  null,
+    nome:  null,
+    organizacao:  null,
+    razao:  null,
+  };
+
+  respo = {
+    id: null,
+    nome: null
+  };
+
   constructor(private activatedroute: ActivatedRoute,
     public fseservice: FseService,
-    public criancaService: CriancasService) { }
+    public criancaService: CriancasService) {
+
+     }
 
   ngOnInit() {
 
        this.activatedroute.params.subscribe((id)=>{
-          this.id=Number.parseInt(id.id);
+          const a =Number.parseInt(id.id);
+          this.id=a;
+          this.fseservice.getUser(a);
 
-          this.fseservice.getUser(this.id);
-          this.criancaService.getUser(this.id);
+
        });
 
-
   }
+
+
+
+
 
 
 

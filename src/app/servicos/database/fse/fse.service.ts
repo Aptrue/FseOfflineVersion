@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/prefer-for-of */
 /* eslint-disable @typescript-eslint/quotes */
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable prefer-const */
@@ -21,7 +22,7 @@ export class FseService {
   readonly db_table: string = "userUTableee";
 
   fse: Array <any> ;
-  fsePorId: any [];
+  fsePorId: Array<any>;
 
 
   constructor(public database: DatabaseService,
@@ -87,10 +88,10 @@ export class FseService {
     //Obter todos da fse
     getAllUsers() {
       return this.dbInstance.executeSql(`SELECT * FROM ${this.db_table}`, []).then((res) => {
-        this.fse = [];
+        this.fse.pop();
         if (res.rows.length > 0) {
           for (let i = 0; i < res.rows.length; i++) {
-            this.fse.push(res.rows.item(i));
+            this.fse.push(res.rows.item(0));
           }
           return this.fse;
         }
@@ -101,19 +102,22 @@ export class FseService {
 
     // Obter apenas um com base no id
 
-    getUser(id): Promise<any> {
-      return this.dbInstance.executeSql(`SELECT * FROM ${this.db_table} WHERE id = ?`, [id])
-      .then((res) => {
 
-          this.fsePorId.pop();
-          if (res.rows.length > 0) {
-            for (let i = 0; i < res.rows.length; i++) {
-              this.fsePorId.push(res.rows.item(i));
-            }
-            return this.fsePorId;
-          }
-      });
+ getUser(id): Promise<any> {
+  return this.dbInstance.executeSql(`SELECT * FROM ${this.db_table} WHERE id = ?`, [id])
+  .then((res) => {
+
+    this.fsePorId = [];
+
+    if (res.rows.length > 0) {
+      for (let i = 0; i < res.rows.length; i++) {
+        this.fsePorId.push(res.rows.item(0));
+      }
+      return this.fsePorId;
     }
+
+  });
+}
 
     // Actualizar fse (um)
 
