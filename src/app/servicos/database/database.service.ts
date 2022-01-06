@@ -10,7 +10,7 @@ import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 })
 export class DatabaseService {
 
-  readonly db_name: string = "remotestack.db";
+  readonly db_name: string = "remoteste.db";
 
   constructor(
     private sqlite: SQLite

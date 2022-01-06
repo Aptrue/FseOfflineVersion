@@ -6,12 +6,11 @@ const routes: Routes = [
   {
     path: '',
     component: Tab3Page,
-  },
-  {
-    path: 'oque-deseja-editar/:id',
-    loadChildren: () => import('../paginas/editar_familias/oque-deseja-editar/oque-deseja-editar.module')
-    .then( m => m.OqueDesejaEditarPageModule)
+  },  {
+    path: 'detalhes/:id',
+    loadChildren: () => import('../paginas/editar_Familia/detalhes/detalhes.module').then( m => m.DetalhesPageModule)
   }
+
 ];
 
 @NgModule({

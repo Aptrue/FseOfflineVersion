@@ -1,0 +1,122 @@
+/* The basics to play
+---------------------------------------*/
+* { margin: 0; padding: 0; }
+
+h1 {
+  margin: 0 0 15px;
+  color: #444;
+}
+
+li {
+  list-style-type: none;
+}
+
+li + li {
+  padding-top: 10px;
+}
+
+body {
+  font: 100% 'Roboto', sans-serif;
+  background: #ebe6df;
+
+  text-rendering: optimizeLegibility;
+
+  -webkit-text-size-adjust: none;
+          text-size-adjust: none;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 320px;
+  margin: 30px auto;
+}
+
+
+/* Cards module
+---------------------------------------*/
+.card {
+  position: relative;
+  padding: 12px 12px 14px 44px;
+  min-height: 45px;
+  box-shadow: 0 1px 2px 0 #b5b1ac;
+  border-radius: 4px;
+  background: #fff;
+
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 300;
+  color: #303030;
+}
+
+.card-content {
+  font-size: 14px;
+  color: #777;
+}
+
+.card .group-checkbox {
+  position: absolute;
+  top: 15px; left: 12px;
+}
+
+.card.checked {
+  background: #f1eee9;
+}
+
+.card.checked .card-title,
+.card.checked .card-content {
+    color: #ff9900;
+}
+
+
+/* Checkbox module
+---------------------------------------*/
+.group-checkbox {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 22px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.group-checkbox i {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #cacaca;
+  border-radius: 50%;
+}
+
+.group-checkbox input {
+  position: absolute;
+  top: 0; left: 0;
+  margin: 0;
+  opacity: 0;
+  z-index: -1;
+}
+
+.group-checkbox input:checked ~ i:after {
+  content: '\2713';
+  position: absolute;
+  top: 4px; left: 3px;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 15px;
+  color: #ff9900;
+}
+
+.group-checkbox input:checked ~ i {
+  border-color: #ff9900;
+}
+
+.checked {
+  position: relative;
+  color: #ff9900;
+  text-decoration: line-through;
+}

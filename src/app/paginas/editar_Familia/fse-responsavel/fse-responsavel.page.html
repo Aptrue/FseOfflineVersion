@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>Editando Familia</ion-title>
+    <ion-card-subtitle>&nbsp;{{ camposfsc.nome }}</ion-card-subtitle>
+    <button type="submit" [disabled]="fsc.invalid" slot="end" (click)="enviar(id)" class="btnEnviar"><ion-icon name="checkmark-outline"  id="confirmar"></ion-icon></button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div>
+
+    <form #fsc="ngForm" (ngSubmit)="enviar(fsc)">
+
+
+      <label for="id">id</label>
+      <input type="number" name="id"[(ngModel)]="camposfsc.id">
+
+      <label for="nome">Nome do inquerido</label>
+      <input type="text" id="nome" name="nome" placeholder="Digite o nome"  required [(ngModel)]="camposfsc.nome">
+
+
+      <label for="localizacao">localização detalhada</label>
+      <input type="text" id="localizacao" name="localizacao" placeholder="Digite a localizao" required [(ngModel)]="camposfsc.localizacao">
+
+
+      <label for="razao">Razão Da Visita</label>
+      <ion-select id="razao" cancelText="Cancelar" name="razao" class="select" placeholder="Escolha a Razão da visista" required [(ngModel)]="camposfsc.razao" title="Razao">
+
+        <ion-select-option value="visita para seleção do beneficiário">visita para seleção do beneficiário</ion-select-option>
+
+        <ion-select-option value="FIP">FIP</ion-select-option>
+        <ion-select-option value="EDUC">EDUC</ion-select-option>
+        <ion-select-option value="PC">PC</ion-select-option>
+        <ion-select-option value="Pre-escolar">Pre-escolar</ion-select-option>
+        <ion-select-option value="Ação social">Ação social</ion-select-option>
+        <ion-select-option value="Agricultura">Agricultura</ion-select-option>
+
+        <ion-select-option value="Visita de Seguimento">Visita de Seguimento</ion-select-option>
+      </ion-select>
+
+
+      <label for="bairro">Bairro</label>
+      <ion-select cancelText="Cancelar" id="bairro" name="bairro" class="select" placeholder="Digite o Bairo" required [(ngModel)]="camposfsc.bairro">
+        <ion-select-option value="Chipangara">Chipangara</ion-select-option>
+        <ion-select-option value="Inhamizua">Inhamizua</ion-select-option>
+        <ion-select-option value="Muave">Muave</ion-select-option>
+        <ion-select-option value="Munhava Mananga">Munhava Mananga</ion-select-option>
+        <ion-select-option value="Mafarinha">Mafarinha</ion-select-option>
+        <ion-select-option value="Polana Caniço">Polana Caniço</ion-select-option>
+        <ion-select-option value="Mafalala">Mafalala</ion-select-option>
+
+        <ion-select-option disabled>Guiné Bissau</ion-select-option>
+        <ion-select-option value="Belém">Belém</ion-select-option>
+        <ion-select-option value="Militar">Militar</ion-select-option>
+        <ion-select-option value="Missira">Missira</ion-select-option>
+
+        <ion-select-option disabled>Tchad</ion-select-option>
+        <ion-select-option value="Walia">Walia</ion-select-option>
+        <ion-select-option value="Bongor">Bongor</ion-select-option>
+
+      </ion-select>
+
+      <label for="organizacao">OCB/ONG/ORG</label>
+      <input type="text" id="organizacao" name="organizacao" placeholder="Digite OCB/ONG/ORG"  required [(ngModel)]="camposfsc.organizacao">
+
+      <label for="contacto">Contacto</label>
+      <input
+      oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+      maxlength="9" type="number" id="contacto" name="contacto" maxlength="9" placeholder="+258 xxx xxx xxx"  required [(ngModel)]="camposfsc.contacto">
+
+
+    </form>
+
+
+
+  </div>
+
+</ion-content>
+
+

@@ -1,0 +1,153 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home/cadastro" title="voltar" value="voltar"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Editando Moradia</ion-title>
+
+
+    <button type="submit" [disabled]="m.invalid" slot="end"  class="btnEnviar"><ion-icon name="checkmark-outline"  id="confirmar" ></ion-icon></button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div>
+   <form #m="ngForm">
+
+    <label for="id">id</label>
+      <input type="number" name="id"[(ngModel)]="moradia.id">
+
+    <label class="label" for="tipodecasa">
+      Tipo de casa
+    </label>
+
+    <ion-select placeholder="selecione o tipo de casa" class="select" name="tipo_de_casa" [(ngModel)]="moradia.tipo_de_casa" required>
+        <ion-select-option value="Alvenaria">Alvenaria</ion-select-option>
+        <ion-select-option value="caniço">caniço</ion-select-option>
+        <ion-select-option value="Madeira e Zinco">Madeira e Zinco</ion-select-option>
+        <ion-select-option value="Madeira">Madeira</ion-select-option>
+        <ion-select-option value="outro">outro</ion-select-option>
+      </ion-select>
+
+      <label class="label" for="nacomodacao">
+        N° de acomodações/divisões:
+      </label>
+
+      <ion-select placeholder=" Digita as acomodações/divisões" class="select" name="numero_de_acomodacao" [(ngModel)]="moradia.numero_de_acomodacao" required>
+
+          <ion-select-option value="1">1</ion-select-option>
+          <ion-select-option value="2">2</ion-select-option>
+          <ion-select-option value="3">3</ion-select-option>
+          <ion-select-option value="4">4</ion-select-option>
+          <ion-select-option value="5">5</ion-select-option>
+          <ion-select-option value="+5">+5</ion-select-option>
+      </ion-select>
+
+
+      <label class="label" for="destinodolixo">
+        Destino de lixo:
+      </label>
+
+     <ion-select placeholder="Digite o destino do lixo" class="select" name="destino_do_lixo" [(ngModel)]="moradia.destino_do_lixo" required>
+      <ion-select-option value="Contentor">Contentor</ion-select-option>
+      <ion-select-option value="Queimado/enterrado">Queimado/enterrado</ion-select-option>
+      <ion-select-option value="Céu Aberto">Céu Aberto</ion-select-option>
+     </ion-select>
+
+
+
+     <label class="label" for="tratamentodeagua">
+      Tratamento de água a domicílio:
+    </label>
+
+    <ion-select placeholder="Tratamento de água a domicílio" class="select" name="tratamento_de_agua" [(ngModel)]="moradia.tratamento_de_agua" requerid>
+    <ion-select-option value="Filtração">Filtração</ion-select-option>
+    <ion-select-option value="fervura">fervura </ion-select-option>
+    <ion-select-option value="cloração">cloração</ion-select-option>
+    <ion-select-option value="sem tratamento">sem tratamento</ion-select-option>
+    </ion-select>
+
+
+    <label class="label" for="abastecimentodeagua">
+      Abastecimento de água:
+    </label>
+
+  <ion-select placeholder="Abastecimento de água:" class="select" name="abastecimento_de_agua" [(ngModel)]="moradia.abastecimento_de_agua" required>
+    <ion-select-option value="Fonte própria">Fonte própria</ion-select-option>
+    <ion-select-option value="Fonte de terceiros">Fonte de terceiros</ion-select-option>
+    <ion-select-option value="Rede comunitária">Rede comunitária</ion-select-option>
+    <ion-select-option value="Poço próprio">Poço próprio</ion-select-option>
+    <ion-select-option value="Poço geral">Poço geral</ion-select-option>
+  </ion-select>
+
+
+  <label class="label" for="destinodefezes">
+    Destino de Fezes e urina:
+ </label>
+
+ <ion-select placeholder="Destino de Fezes e urina" class="select" name="destino_de_fezes" [(ngModel)]="moradia.destino_de_fezes" requerid>
+   <ion-select-option value="Sistema de esgoto(rede geral)">Sistema de esgoto(rede geral)</ion-select-option>
+   <ion-select-option value="Fossa">Fossa </ion-select-option>
+   <ion-select-option value="Céu aberto">Céu aberto</ion-select-option>
+ </ion-select>
+
+
+
+ <label class="label" for="emcasodedoenca">
+   Em caso de doença procura:
+ </label>
+
+ <ion-select placeholder=" Em caso de doença procura" class="select" name="emcaso_de_doenca" [(ngModel)]="moradia.em_caso_de_doenca" required>
+
+   <ion-select-option value="hospital">hospital</ion-select-option>
+   <ion-select-option value="centro de saúde">centro de saúde</ion-select-option>
+   <ion-select-option value="farmácia">farmácia</ion-select-option>
+   <ion-select-option value="curandeiro">curandeiro</ion-select-option>
+   <ion-select-option value="Fica em casa">Fica em casa</ion-select-option>
+   <ion-select-option value="outro">outro</ion-select-option>
+ </ion-select>
+
+ <label for="meiodetransporte">
+  Meio de transporte que mais utiliza:
+ </label>
+ <ion-select  class="select" placeholder="Meio de transporte que mais utiliza" name="meio_de_transporte" [(ngModel)]="moradia.meio_de_transporte" required>
+
+  <ion-select-option value="Taxi colectivo">taxi colectivo</ion-select-option>
+  <ion-select-option value="Carro pessoal">carro pessoal</ion-select-option>
+  <ion-select-option value="Machimbombo/Autocarro">machimbombo/Autocarro</ion-select-option>
+  <ion-select-option value="Anda a pé">Anda a pé</ion-select-option>
+  <ion-select-option value="Bicicleta">bicicleta</ion-select-option>
+  <ion-select-option value="Mota">mota</ion-select-option>
+
+ </ion-select>
+
+ <label class="label" for="energia">
+  Energia:
+  </label>
+
+
+  <ion-select class="select" placeholder="Energia" name="energia" [(ngModel)]="moradia.energia" required>
+  <ion-select-option value="Tem energia eléctrica">Tem energia eléctrica </ion-select-option>
+  <ion-select-option value="Sem energia eléctrica">Sem energia eléctrica</ion-select-option>
+  </ion-select>
+
+
+
+   </form>
+
+</div>
+
+<section>
+
+
+</section>
+
+
+
+</ion-content>
+
+

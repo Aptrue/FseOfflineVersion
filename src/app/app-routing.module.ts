@@ -34,13 +34,22 @@ const routes: Routes = [
     loadChildren: () => import('./paginas/adultos/adultos.module').then(m => m.AdultosPageModule)
   },
   {
-    path: 'oque-deseja-editar/:id',
-    loadChildren: () => import('./paginas/editar_familias/oque-deseja-editar/oque-deseja-editar.module').then( m => m.OqueDesejaEditarPageModule)
+    path: 'detalhes/:id',
+    loadChildren: () => import('./paginas/editar_Familia/detalhes/detalhes.module').then( m => m.DetalhesPageModule)
   },
   {
-    path: 'fse-responsavel',
-    loadChildren: () => import('./paginas/editar_familias/fse-responsavel/fse-responsavel.module').then( m => m.FseResponsavelPageModule)
+    path: 'edit-moradia/:id',
+    loadChildren: () => import('./paginas/editar_Familia/edit-moradia/edit-moradia.module').then( m => m.EditMoradiaPageModule)
+  },
+  {
+    path: 'fse-responsavel/:id',
+    loadChildren: () => import('./paginas/editar_Familia/fse-responsavel/fse-responsavel.module').then( m => m.FseResponsavelPageModule)
   }
+
+
+
+
+
 
 
 

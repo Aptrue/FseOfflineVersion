@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 
 
+
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
@@ -35,7 +36,16 @@ export class Tab3Page {
 
     }
 
+    doSerchClear() {
+      this.fseService.getAllUsers();
+    }
 
+    async doSerchBarChange($event: any) {
+      const value = $event.target.value;
+      if (value && value.length >= 2) {
+         await this.fseService.filter(value);
+      }
+    }
 
 
     async presentAlertConfirm(id) { // deletar familia
@@ -67,10 +77,8 @@ export class Tab3Page {
 
 
 
-   editar(id){
-
-     this.router.navigate(['oque-deseja-editar', id]);
-
+  async editar(id){
+       this.router.navigate(['detalhes', id]);
    }
 
 

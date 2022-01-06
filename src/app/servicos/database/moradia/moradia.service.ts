@@ -103,4 +103,25 @@ export class MoradiaService {
   }
 
 
+   // Get moradia
+   async  getUser(id): Promise<any> {
+    return this.dbInstance.executeSql(`SELECT * FROM ${this.db_table} WHERE id = ?`, [id])
+    .then((res) => {
+      return {
+        id: res.rows.item(0).id,
+        abastecimento_de_agua: res.rows.item(0). abastecimento_de_agua,
+        destino_de_fezes:res.rows.item(0).destino_de_fezes,
+        destino_do_lixo:res.rows.item(0).destino_do_lixo,
+        em_caso_de_doenca:res.rows.item(0). em_caso_de_doenca,
+        energia:res.rows.item(0).energia,
+        meio_de_transporte:res.rows.item(0).meio_de_transporte,
+        numero_de_acomodacao:res.rows.item(0).numero_de_acomodacao,
+        tipo_de_casa:res.rows.item(0).tipo_de_casa,
+        tratamento_de_agua:res.rows.item(0).tratamento_de_agua,
+
+      }
+    });
+  }
+
+
 }

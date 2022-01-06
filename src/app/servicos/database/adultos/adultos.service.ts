@@ -20,7 +20,7 @@ import { ToastController } from '@ionic/angular';
 export class AdultosService {
 
   private dbInstance: SQLiteObject;
-  readonly db_table: string = "userCrianca";
+  readonly db_table: string = "userCriancadulto";
   crianca: Array <any> ;
   criancaPorId: any [];
 
@@ -39,30 +39,27 @@ export class AdultosService {
                   sqLite.executeSql(
 
                     `CREATE TABLE IF NOT EXISTS ${this.db_table} (
-                        id INTEGER,
-                        cartao_de_vacina varchar(255),
-                        classe varchar(255),
-                        conflito_com_a_lei varchar(255),
-                        control_pre_natal varchar(255),
-                        data_de_nascimento varchar(255),
-                        deficiencia varchar(255),
-                        doenca varchar(255),
-                        estuda varchar(255),
-                        gravida varchar(255),
-                        material varchar(255),
-                        nome_completo varchar(255),
-                        orfao varchar(255),
-                        rede_mosquiteira varchar(255),
-                        registro_de_nascimento varchar(255),
-                        sexo varchar(255),
-                        tratamento varchar(255),
-                        uniforme varchar(255),
-                        vive_com_quem varchar(255)
+                      id INTEGER,
+                      acamado varchar(255),
+                      alfabetizado varchar(255),
+                      bilhete_de_identidade varchar(255),
+                      control_pre_natal varchar(255),
+                      data_de_nascimento varchar(255),
+                      deficiencia varchar(255),
+                      doenca varchar(255),
+                      fonte_de_rendimento varchar(255),
+                      gravida varchar(255),
+                      nivel_escolar varchar(255),
+                      nome_do_adulto varchar(255),
+                      sexo varchar(255),
+                      tem_contracto varchar(255),
+                      zona_com_calamidade varchar(255)
+
                       )`,
 
                       [])
                     .then((res) => {
-                      // alert(JSON.stringify(res));
+                       //alert("wow cool");
                     })
                     .catch((error) => alert(JSON.stringify(error)));
                 })
@@ -74,54 +71,37 @@ export class AdultosService {
 
     //  Insercao de criancas;
 
-    public addItem(id,cart,cl,con,clr,data,def,doe,es,gr,ma,nome,or,re,reg,sex,tra,uni,vive) {
+    public addItem(id,cart,cl,con,clr,data,def,doe,es,gr,ma,nome,or,re,reg) {
 
       this.dbInstance.executeSql(`
       INSERT INTO ${this.db_table} (
-        id,
-        cartao_de_vacina,
-        classe,
-        conflito_com_a_lei,
-        control_pre_natal,
-        data_de_nascimento,
-        deficiencia,
-        doenca,
-        estuda,
-        gravida,
-        material,
-        nome_completo,
-        orfao,
-        rede_mosquiteira,
-        registro_de_nascimento,
-        sexo,
-        tratamento,
-        uniforme,
-        vive_com_quem
+    id,
+    acamado,
+    alfabetizado,
+    bilhete_de_identidade,
+    control_pre_natal,
+    data_de_nascimento,
+    deficiencia,
+    doenca,
+    fonte_de_rendimento,
+    gravida,
+    nivel_escolar,
+    nome_do_adulto,
+    sexo,
+    tem_contracto,
+    zona_com_calamidade,
       )
 
       VALUES ('${id}','${cart}', '${cl}', '${con}','${clr}','${data}','${def}','${doe}','${es}',
-      '${gr}','${ma}','${nome}','${or}','${re}','${reg}','${sex}','${tra}','${uni}','${vive}')`, [])
+      '${gr}','${ma}','${nome}','${or}','${re}','${reg}')`, [])
 
         .then(() => {
           alert("Success");
-         // this.getAllUsers();
         }, (e) => {
           alert(JSON.stringify(e.err));
         });
     }
 
 
-    getUser(id): Promise<any> {
-      return this.dbInstance.executeSql(`SELECT * FROM ${this.db_table} WHERE id = ?`, [id])
-      .then((res) => {
-
-          this.criancaPorId.pop();
-          if (res.rows.length > 0) {
-            for (let i = 0; i < res.rows.length; i++) {
-              this.criancaPorId.push(res.rows.item(i));
-            }
-            return this.criancaPorId;
-          }
-      });
-    }
+    
 }

@@ -23,7 +23,9 @@
  	<!--Area dos segmentos-->
    <div [ngSwitch]="selectedSegment">
 
-    <ion-searchbar placeholder="Pesquisar">
+    <ion-searchbar placeholder="Pesquisar"
+     (ionClear)="doSerchClear()"
+    (ionChange)="doSerchBarChange($event)">
 
     </ion-searchbar>
 
@@ -62,6 +64,9 @@
                       <th>
                         contacto
                       </th>
+                      <th>
+                        Bairro
+                      </th>
 
 
 
@@ -73,8 +78,10 @@
                           {{ res.nome }} </td>
                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                           {{ res.contacto }}</td>
+                          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          {{ res.bairro }}</td>
 
-                         <td>
+
 
                     </tbody>
 

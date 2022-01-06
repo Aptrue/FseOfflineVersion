@@ -109,28 +109,24 @@ export class AdultosPage implements OnInit {
                                             console.log(ad.value)
                                             console.log(ad.controls)
 
-                                            /**Inserindo Dados na tabela
-
-                                            this.adultosservice.addItem(
-
-                                             this.adultos.id,
-                                             this.adultos.acamado,
-                                             this.adultos.alfabetizado,
-                                             this.adultos.bilhete_de_identidade,
-                                             this.adultos.control_pre_natal,
-                                             this.adultos.data_de_nascimento,
-                                             this.adultos.deficiencia,
-                                             this.adultos.doenca,
-                                             this.adultos.fonte_de_rendimento,
-                                             this.adultos.gravida,
-                                             this.adultos.nivel_escolar,
-                                             this.adultos.nome_do_adulto,
-                                             this.adultos.sexo,
-                                             this.adultos.tem_contracto,
-                                             this.adultos.zona_com_calamidade,
-
-                                            );*/
-
+                                            /**Inserindo Dados na tabela*/
+                                                          this.adultosservice.addItem(
+                                                            this.adultos.id,
+                                                            this.adultos. acamado,
+                                                            this.adultos. alfabetizado,
+                                                            this.adultos.    bilhete_de_identidade,
+                                                            this.adultos.  control_pre_natal,
+                                                            this.adultos.  data_de_nascimento,
+                                                            this.adultos.deficiencia,
+                                                            this.adultos.  doenca,
+                                                            this.adultos. fonte_de_rendimento,
+                                                            this.adultos.     gravida,
+                                                            this.adultos.  nivel_escolar,
+                                                            this.adultos.nome_do_adulto,
+                                                            this.adultos.  sexo,
+                                                            this.adultos.  tem_contracto,
+                                                            this.adultos.zona_com_calamidade,
+                                                          );
                                             //fim da insercao
 
                                             if(this.verificar==this.valoradulto+1){

@@ -22,7 +22,7 @@ export class CriancasService {
   private dbInstance: SQLiteObject;
   readonly db_table: string = "userCrianca";
   crianca: Array <any> ;
-  criancaPorId: any [];
+
 
   constructor(
     public database: DatabaseService,
@@ -111,17 +111,34 @@ export class CriancasService {
     }
 
 
-    getUser(id): Promise<any> {
+
+    getAllUsers() {
+      return this.dbInstance.executeSql(`SELECT * FROM ${this.db_table}`, []).then((res) => {
+        this.crianca = [];
+        if (res.rows.length > 0) {
+          for (let i = 0; i < res.rows.length; i++) {
+            this.crianca.push(res.rows.item(i));
+          }
+          return this.crianca;
+        }
+      },(e) => {
+        alert(JSON.stringify(e));
+      });
+    }
+
+     // Get user
+     getUser(id): Promise<any> {
       return this.dbInstance.executeSql(`SELECT * FROM ${this.db_table} WHERE id = ?`, [id])
       .then((res) => {
-
-          this.criancaPorId.pop();
-          if (res.rows.length > 0) {
-            for (let i = 0; i < res.rows.length; i++) {
-              this.criancaPorId.push(res.rows.item(i));
-            }
-            return this.criancaPorId;
-          }
+        return {
+          id: res.rows.item(0).id,
+          bairro: res.rows.item(0).bairro,
+          contacto: res.rows.item(0).contacto,
+          localizacao: res.rows.item(0).localizacao,
+          nome: res.rows.item(0).nome,
+          organizacao: res.rows.item(0).organizacao,
+          razao: res.rows.item(0).razao,
+        }
       });
     }
 }
