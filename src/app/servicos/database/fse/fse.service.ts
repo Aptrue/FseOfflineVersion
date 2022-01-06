@@ -23,7 +23,7 @@ export class FseService {
   readonly db_table: string = "userUTableee";
 
   fse: Array <any> ;
-<<<<<<< HEAD
+
   //db: SQLiteObject;
 
   camposfsc: any = {
@@ -36,9 +36,9 @@ export class FseService {
     razao: null
   };
 
-=======
+
   fsePorId: Array<any>;
->>>>>>> e1401d2f9d88a9bf6985284440f96337788951c4
+
 
 
   constructor(public database: DatabaseService,
@@ -115,24 +115,8 @@ export class FseService {
       });
     }
 
-<<<<<<< HEAD
-    // Get user
-  async  getUser(id): Promise<any> {
-      return this.dbInstance.executeSql(`SELECT * FROM ${this.db_table} WHERE id = ?`, [id])
-      .then((res) => {
-        return {
-          id: res.rows.item(0).id,
-          bairro: res.rows.item(0).bairro,
-          contacto: res.rows.item(0).contacto,
-          localizacao: res.rows.item(0).localizacao,
-          nome: res.rows.item(0).nome,
-          organizacao: res.rows.item(0).organizacao,
-          razao: res.rows.item(0).razao,
-        }
-      });
-    }
 
-=======
+
     // Obter apenas um com base no id
 
 
@@ -153,7 +137,6 @@ export class FseService {
 }
 
     // Actualizar fse (um)
->>>>>>> e1401d2f9d88a9bf6985284440f96337788951c4
 
     //Filtrar
 
