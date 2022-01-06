@@ -23,6 +23,7 @@ export class FseService {
   readonly db_table: string = "userUTableee";
 
   fse: Array <any> ;
+<<<<<<< HEAD
   //db: SQLiteObject;
 
   camposfsc: any = {
@@ -35,6 +36,9 @@ export class FseService {
     razao: null
   };
 
+=======
+  fsePorId: Array<any>;
+>>>>>>> e1401d2f9d88a9bf6985284440f96337788951c4
 
 
   constructor(public database: DatabaseService,
@@ -99,10 +103,10 @@ export class FseService {
 
     getAllUsers() {
       return this.dbInstance.executeSql(`SELECT * FROM ${this.db_table}`, []).then((res) => {
-        this.fse = [];
+        this.fse.pop();
         if (res.rows.length > 0) {
           for (let i = 0; i < res.rows.length; i++) {
-            this.fse.push(res.rows.item(i));
+            this.fse.push(res.rows.item(0));
           }
           return this.fse;
         }
@@ -111,6 +115,7 @@ export class FseService {
       });
     }
 
+<<<<<<< HEAD
     // Get user
   async  getUser(id): Promise<any> {
       return this.dbInstance.executeSql(`SELECT * FROM ${this.db_table} WHERE id = ?`, [id])
@@ -127,6 +132,28 @@ export class FseService {
       });
     }
 
+=======
+    // Obter apenas um com base no id
+
+
+ getUser(id): Promise<any> {
+  return this.dbInstance.executeSql(`SELECT * FROM ${this.db_table} WHERE id = ?`, [id])
+  .then((res) => {
+
+    this.fsePorId = [];
+
+    if (res.rows.length > 0) {
+      for (let i = 0; i < res.rows.length; i++) {
+        this.fsePorId.push(res.rows.item(0));
+      }
+      return this.fsePorId;
+    }
+
+  });
+}
+
+    // Actualizar fse (um)
+>>>>>>> e1401d2f9d88a9bf6985284440f96337788951c4
 
     //Filtrar
 
